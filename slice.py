@@ -46,7 +46,7 @@ def slice_poly(poly, area):
 
 def rotate_coords(poly, n=1):
     """
-    Rotates the exterior coordinate list of a Polygon, making the nth point the root point
+    Rotates the exterior coordinate list of a Polygon, making the nth point the root point.
 
     :param poly: the polygon to rotate
     :param n: the amount to rotate by
@@ -62,7 +62,11 @@ def rotate_coords(poly, n=1):
 
 def regular_polygon(sides, upright=True):
     """
-    Returns a polygon inscribed in the unit circle
+    Returns a polygon inscribed in the unit circle.
+
+    :param sides: how many sides the generated polygon should have
+    :param upright: if True, rotate so it's "base" is on the bottom
+    :returns: the generated polygon
     """
     points = []
     if upright:
