@@ -1,6 +1,4 @@
 
-
-
 from slice import *
 
 from shapely.geometry import box
@@ -13,8 +11,7 @@ import math
 from matplotlib import animation
 from tqdm import tqdm, trange
 
-# plt.subplots_adjust(bottom = 0.1)
-# plt.axis('equal')
+
 fig = plt.figure()
 plt.axis([-1,1,-1,1])
 ax = plt.gca()
@@ -29,10 +26,6 @@ def slicing(poly, divisions):
         yield result
         if poly.is_empty: break
         poly = rotate_coords(poly)
-
-# poly = box(0,0,1,1)
-# poly = regular_polygon(200)
-
 
 def init():
     return []
@@ -65,8 +58,8 @@ shapes["trunc-square"] = rotate_coords(sg.polygon.orient(box(-1,-1,0,0).union(bo
 
 linewidth = 1.0
 
-# # selected = {"trunc-square": shapes["trunc-square"]}
-selected = {k:shapes[k] for k in ["trunc-square"] if k in shapes}
+# selected = {k:shapes[k] for k in ["trunc-square"] if k in shapes}
+selected = shapes
 
 ipbar = tqdm(selected.items())
 # ipbar = tqdm([3])
@@ -95,6 +88,5 @@ for name, polygon in ipbar:
     anim.save('animations/{}.gif'.format(name), dpi=80, writer='imagemagick')
 
 ipbar.close()
-
 
 # plt.show()
